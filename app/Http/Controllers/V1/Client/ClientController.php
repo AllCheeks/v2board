@@ -48,11 +48,11 @@ class ClientController extends Controller
         $userService = new UserService();
         $resetDay = $userService->getResetDay($user);
         array_unshift($servers, array_merge($servers[0], [
-            'name' => "套餐到期：{$expiredDate}",
+            'name' => "套餐到期：{$expiredDate} | 备用官网: v2.heyimyh.cn",
         ]));
         if ($resetDay) {
             array_unshift($servers, array_merge($servers[0], [
-                'name' => "距离下次重置剩余：{$resetDay} 天",
+                'name' => "离流量重置剩余：{$resetDay} 天 | 官网：加速.top",
             ]));
         }
         array_unshift($servers, array_merge($servers[0], [

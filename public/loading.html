@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Startup Animation</title>
+  <style>
+    /* 添加你的启动动画样式 */
+    /* 例如：一个简单的居中显示的加载动画 */
+    .loader {
+      border: 5px solid #f3f3f3;
+      border-top: 5px solid #3498db;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 2s linear infinite;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -25px;
+      margin-left: -25px;
+      display: none; /* 初始状态隐藏动画 */
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <!-- 这里是你的启动动画内容 -->
+  <div class="loader"></div>
+
+  <!-- 可以添加一些文字提示或者说明 -->
+  <p>Loading...</p>
+
+  <script>
+    // 异步显示启动动画
+    document.addEventListener('DOMContentLoaded', function() {
+      var loader = document.querySelector('.loader');
+      var loadingText = document.querySelector('p');
+
+      loader.style.display = 'block'; // 显示动画
+      loadingText.style.display = 'block'; // 显示文字提示
+
+      // 模拟加载完成后隐藏动画和文字，你可以根据需要修改延迟时间
+      setTimeout(function() {
+        loader.style.display = 'none';
+        loadingText.style.display = 'none';
+      }, 2000); // 2秒后隐藏动画和文字，模拟加载完成
+    });
+  </script>
+  
+  <!-- 这里可以添加你需要的 JavaScript 文件 -->
+</body>
+</html>
