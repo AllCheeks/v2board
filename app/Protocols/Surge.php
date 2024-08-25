@@ -67,8 +67,8 @@ class Surge
         }
 
         // Subscription link
+        $subsURL = Helper::getSubscribeUrl($user['token']);
         $subsDomain = $_SERVER['HTTP_HOST'];
-        $subsURL = 'https://' . $subsDomain . '/api/v1/client/subscribe?token=' . $user['token'];
 
         $config = str_replace('$subs_link', $subsURL, $config);
         $config = str_replace('$subs_domain', $subsDomain, $config);
@@ -194,8 +194,8 @@ class Surge
             // 'tfo=true', 
             'udp-relay=true'
         ];
-        if (!empty($server['allow_insecure'])) {
-            array_push($config, $server['allow_insecure'] ? 'skip-cert-verify=true' : 'skip-cert-verify=false');
+        if (!empty($server['insecure'])) {
+            array_push($config, $server['insecure'] ? 'skip-cert-verify=true' : 'skip-cert-verify=false');
         }
         $config = array_filter($config);
         $uri = implode(',', $config);
